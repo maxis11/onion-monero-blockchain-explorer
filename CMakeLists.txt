@@ -95,7 +95,7 @@ if (WIN32 OR (${UNBOUND_LIBRARY} STREQUAL "UNBOUND_LIBRARY-NOTFOUND"))
 endif()
 
 if("${Xmr_WALLET-CRYPTO_LIBRARIES}" STREQUAL "Xmr_WALLET-CRYPTO_LIBRARY-NOTFOUND")
-  set(WALLET_CRYPTO "")
+  set(WALLET_CRYPTO "${Xmr_WALLET_MERGED_LIBRARIES}")
 else()
   set(WALLET_CRYPTO ${Xmr_WALLET-CRYPTO_LIBRARIES})
 endif()
@@ -138,30 +138,10 @@ set(LIBRARIES
         myxrm
         myext
         mstch
-        wallet
-        blockchain_db
-        device
-        ${WALLET_CRYPTO}
-        cryptonote_core
-        cryptonote_basic
-        cryptonote_format_utils_basic
-        cryptonote_protocol
-        multisig
-        daemonizer
-        blocks
+        ${Xmr_WALLET_MERGED_LIBRARIES}
         lmdb
-        ringct
-        ringct_basic
-        common
-        mnemonics
         easylogging
-        checkpoints
-        cncrypto        
-        miniupnpc
-        version
         epee
-        hardforks
-        randomx
         sodium
         ${Boost_LIBRARIES}
         pthread
