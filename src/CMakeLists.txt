@@ -8,13 +8,14 @@ set(SOURCE_HEADERS
 		monero_headers.h
 		CurrentBlockchainStatus.h)
 
+configure_file("${PROJECT_SOURCE_DIR}/version.h.in" "${PROJECT_BINARY_DIR}/include/version.h")
+
 set(SOURCE_FILES
 		MicroCore.cpp
 		tools.cpp
 		CmdLineOptions.cpp
 		page.h
 		rpccalls.cpp rpccalls.h
-		version.h.in 
         CurrentBlockchainStatus.cpp 
         MempoolStatus.cpp 
         MempoolStatus.h)
@@ -28,6 +29,8 @@ add_subdirectory(crypto)
 add_library(myxrm
 		STATIC
 		${SOURCE_FILES})
+
+target_include_directories(myxrm PUBLIC "${PROJECT_BINARY_DIR}/include")
 
 target_link_libraries(myxrm mycrypto)
 

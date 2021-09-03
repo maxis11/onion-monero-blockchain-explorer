@@ -303,7 +303,7 @@ void me_rx_slow_hash(const uint64_t mainheight, const uint64_t seedheight, const
         flags |= RANDOMX_FLAG_FULL_MEM;
       else {
         miners = 0;
-        mwarning(RX_LOGCAT, "Couldn't allocate RandomX dataset for miner");
+        // mwarning(RX_LOGCAT, "Couldn't allocate RandomX dataset for miner");
       }
       CTHR_MUTEX_UNLOCK(rx_dataset_mutex);
     }
