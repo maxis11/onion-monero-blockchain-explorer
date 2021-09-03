@@ -53,6 +53,7 @@ set(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "${MONERO_BUILD_DIR}"
 include(MyUtils)
 
 find_package(Monero)
+find_package(RandomX REQUIRED)
 
 # find boost
 find_package(Boost COMPONENTS
@@ -138,12 +139,14 @@ set(LIBRARIES
         myxrm
         myext
         mstch
+        RandomX::RandomX
         ${Xmr_WALLET_MERGED_LIBRARIES}
         lmdb
         easylogging
         epee
         sodium
         ${Boost_LIBRARIES}
+        Boost::thread
         pthread
         unbound
         curl
