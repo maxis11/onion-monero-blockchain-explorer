@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.0.2)
 project(mycrypto)
 
 set(SOURCE_FILES
+    c_threads.h
     rx-slow-hash.c)
 
 # make static library called libmyxrm
