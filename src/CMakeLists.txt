@@ -9,6 +9,7 @@ set(SOURCE_HEADERS
 		CurrentBlockchainStatus.h)
 
 configure_file("${PROJECT_SOURCE_DIR}/version.h.in" "${PROJECT_BINARY_DIR}/include/version.h")
+include_directories("${PROJECT_BINARY_DIR}/include")
 
 set(SOURCE_FILES
 		MicroCore.cpp
@@ -29,8 +30,6 @@ add_subdirectory(crypto)
 add_library(myxrm
 		STATIC
 		${SOURCE_FILES})
-
-target_include_directories(myxrm PUBLIC "${PROJECT_BINARY_DIR}/include")
 
 target_link_libraries(myxrm mycrypto)
 
